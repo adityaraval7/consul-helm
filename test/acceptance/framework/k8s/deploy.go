@@ -65,7 +65,7 @@ func DeployKustomize(t *testing.T, options *k8s.KubectlOptions, noCleanupOnFailu
 		KubectlDeleteK(t, options, kustomizeDir)
 	})
 
-	RunKubectl(t, options, "wait", "--for=condition=available", "--timeout=1m", fmt.Sprintf("deploy/%s", deployment.Name))
+	RunKubectl(t, options, "wait", "--for=condition=available", "--timeout=3m", fmt.Sprintf("deploy/%s", deployment.Name))
 }
 
 // CheckStaticServerConnection execs into a pod of the deployment given by deploymentName
